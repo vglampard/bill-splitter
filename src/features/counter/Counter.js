@@ -14,10 +14,12 @@ export function Counter() {
   const [incrementAmount, setIncrementAmount] = useState('2');
   const [payer, setPayer] = useState("")
   const incrementValue = Number(incrementAmount) || 0;
-console.log("BABB", addPayer("babb"))
+console.log("BABB", addPayer(payer))
 
   function handleClick(){
     console.log("action object data:", incrementValue, payer)
+    dispatch(addPayer(payer))
+  
     dispatch(incrementByAmount(incrementValue));
   }
 
@@ -40,7 +42,7 @@ console.log("BABB", addPayer("babb"))
         />
         <button
           className={styles.button}
-          onClick={() => dispatch(incrementByAmount(incrementValue))}
+          onClick={handleClick}
         >
           Add 
         </button>

@@ -6,7 +6,7 @@ export const paymentsMadeSlice = createSlice({
     name: 'paymentsMade',
     initialState,
     reducers: {
-        addPayer: (state, action)=> state.push(action.payload)
+        addPayer: (state, action)=> {state.push(action.payload)}
     }
 })
 

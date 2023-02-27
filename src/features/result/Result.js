@@ -7,7 +7,7 @@ export default function Result() {
   const count = useSelector(selectCount);
   const payers = useSelector(selectPayers)
  
- console.log("PATYERS:", payers)
+ console.log("PAYERS:", payers)
   return (
     <>
       {" "}
