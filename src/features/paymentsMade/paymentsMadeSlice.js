@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = ["non"]
+const initialState = [{name: "", amount: 0}]
 
 export const paymentsMadeSlice = createSlice({
 
@@ -8,7 +8,7 @@ export const paymentsMadeSlice = createSlice({
     name: 'paymentsMade',
     initialState,
     reducers: {
-        addPayer: (state, action)=> {state.push(action.payload)}
+        addPayer: (state, action)=> { state.push(action.payload)}
     }
 })
 

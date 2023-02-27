@@ -14,11 +14,11 @@ export function Counter() {
   const [incrementAmount, setIncrementAmount] = useState('2');
   const [payer, setPayer] = useState("")
   const incrementValue = Number(incrementAmount) || 0;
-console.log("ACTION OBJECT CREATED BY addPayer", addPayer({payer: payer, amount: incrementValue}))
+
 
   function handleClick(){
     console.log("action object data:", incrementValue, payer)
-    dispatch(addPayer(payer))
+    dispatch(addPayer({name: payer, amount: incrementValue}))
   
     dispatch(incrementByAmount(incrementValue));
   }
