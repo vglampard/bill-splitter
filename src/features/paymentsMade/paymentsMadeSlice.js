@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = []
+const initialState = ["non"]
 
 export const paymentsMadeSlice = createSlice({
     name: 'paymentsMade',
@@ -11,6 +11,6 @@ export const paymentsMadeSlice = createSlice({
 })
 
 export const {addPayer} = paymentsMadeSlice.actions;
-export const selectPayers = (state) => state.paymentsMade.value
+export const selectPayers = (state) => state.paymentsMade
 
 export default paymentsMadeSlice.reducer

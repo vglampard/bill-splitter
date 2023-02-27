@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  decrement,
-  increment,
   incrementByAmount,
-  incrementAsync,
-  incrementIfOdd,
   selectCount,
 } from './counterSlice';
 import styles from './Counter.module.css';
+import { addPayer } from '../paymentsMade/paymentsMadeSlice';
+import { selectPayers } from '../paymentsMade/paymentsMadeSlice';
 
 export function Counter() {
   const count = useSelector(selectCount);
@@ -16,6 +14,12 @@ export function Counter() {
   const [incrementAmount, setIncrementAmount] = useState('2');
   const [payer, setPayer] = useState("")
   const incrementValue = Number(incrementAmount) || 0;
+console.log("BABB", addPayer("babb"))
+
+  function handleClick(){
+    console.log("action object data:", incrementValue, payer)
+    dispatch(incrementByAmount(incrementValue));
+  }
 
   return (
     <div>
