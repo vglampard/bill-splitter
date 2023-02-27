@@ -3,6 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = ["non"]
 
 export const paymentsMadeSlice = createSlice({
+
+    // name hre is prefix for general action types created
     name: 'paymentsMade',
     initialState,
     reducers: {
