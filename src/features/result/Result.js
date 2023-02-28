@@ -71,10 +71,10 @@ function handleClick(){whoPaysWho(owersAndOwedRef, share, total); setFinalResult
        
         <div className="results">
           <div className="owesData">
-            {owersAndOwedRef.owers.map((payer) => {
+            {billing.owers.map((payer) => {
               return (
                 <p>
-                  {payer.name} owes: {calculateBalance(share, payer.amount)}
+                  {payer[0].name} owes: {payer[0].moneyPending}
                 </p>
               );
             })}
