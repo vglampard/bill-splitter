@@ -2,9 +2,10 @@ export function splitOwersAndOwed(payersTrimmed, share) {
     let owers = [];
     let owed = [];
     for (let i = 0; i < payersTrimmed.length; i++) {
-      calculateBalance(share, payersTrimmed[i].amount) < 0
-        ? owed.push(payersTrimmed[i])
-        : owers.push(payersTrimmed[i]);
+        let balance = calculateBalance(share, payersTrimmed[i].amount)
+      balance < 0
+        ? owed.push({...payersTrimmed[i], toPay: balance})
+        : owers.push({...payersTrimmed[i], toPay: balance});
       owers.sort((a, b) => sortByAmountDesc(a, b));
       owed.sort((a, b) => sortByAmountDesc(a, b)).reverse();
     }
