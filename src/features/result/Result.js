@@ -2,10 +2,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectCount } from "../counter/counterSlice";
 import { selectPayers } from "../paymentsMade/paymentsMadeSlice";
 import React from "react";
-import "./results.css"
+import "./results.css";
 
 export default function Result() {
-  const count = useSelector(selectCount);
   const payers = useSelector(selectPayers);
   let totalArray = payers.map((payer) => payer.amount);
   let total = totalArray.reduce((a, b) => a + b);
