@@ -45,3 +45,10 @@ export function createBillingArrays(payersPending){
   billing.even.push(payersPending.filter(payer=> payer.moneyPending===0))
   return billing;
 }
+
+
+export function addPaymentRecipient(billing){
+ 
+billing.owers.forEach((payer)=>{payer.recipient = billing.owed[0][0].name} )
+return billing
+}
