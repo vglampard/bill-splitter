@@ -21,13 +21,22 @@ export default function Result() {
 
 
  function whoPaysWho(owersAndOwedRef, share, total){
+  // find out the amount owed[0] is paid DONE
+  // subtract from that the amount they are owed
+  // the rest goes to the next person 
+
 // all in person.name in oaor pay person.amount to owed[0].name
 let owersRes = owersAndOwedRef.owers.map((person)=>({...person, pays: owersAndOwedRef.owed[0].name}))
+let totalPaidToFirst = owersRes.map((ower)=>ower.toPay)
+console.log("HERE", totalPaidToFirst)
+// STUCK HERE
 
 // take kitty, sum of all money transferred. owed[0] receives kitty. kitty is set to kitty-share; owed[0] pays owed[1] the current value of kitty; continues until kitty is between 0 and 1 (pound)
-let kitty = total
+let kitty = totalPaidToFirst
 for (let i=0; i<owersAndOwedRef.owed.length; i++){
+  console.log("Kitty before deduction:", kitty)
 kitty -= share;
+console.log("Kitty after deduction:", kitty)
 owersAndOwedRef.owed[i].toPay = kitty;
 owersAndOwedRef.owed[i].pays = owersAndOwedRef.owed[i+1]
 if(kitty<=1) break;
