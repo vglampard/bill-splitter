@@ -6,4 +6,12 @@ This object pushes the values to the array of payer objects
 This array is displayed below the counter immediately (like todo list)
 
 
+splut trimmedpayers into two arrays: people who are owed money, and people who owe
+
+sort object array of who's owed by amount owed, highest first. 
+
+All people in ower array pay share to person owed most
+that person pays surplus to next person in owed array 
+etc until 
+
 clear all 
