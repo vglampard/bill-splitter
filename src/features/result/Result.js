@@ -6,7 +6,7 @@ import { splitOwersAndOwed, calculateBalance } from "../../utils/functions";
 import { useState } from "react";
 import FinalBill from "../finalBill/FinalBill";
 import PaymentsMade from "../paymentsMade/paymentsMade";
-import { getTotalPaid } from "../../utils/functions";
+import { getTotalPaid, tallyCheck, createBillingArrays } from "../../utils/functions";
 
 export default function Result() {
   const payersArr = useSelector(selectPayers)
@@ -16,19 +16,23 @@ const total = getTotalPaid(payersArr)
 
   // add new property to objects, 'moneyPending', using calculate balance
 
-let payersPending = payers.map((a)=>({...a, moneyPending: calculateBalance(share, a.amount)}))
-console.log("CALC check payersPop:", payersPending)
-  // CALC CHECK PASSES
+let payersPending = payers.map((a)=>({...a, moneyPending: Number(calculateBalance(share, a.amount))}))
+
+// CHECK that tally of money pending is more or less 0
+console.log("CHECK TALLY EVENS OUT:", tallyCheck(payersPending))
 
   // splitting functions up with button so they don't start running toe soon 
   const [finalResult, setFinalResult] = useState(false)
+  
+  // Split into 3 arrays stored in billing object: owed, ower, even
+  let billing = createBillingArrays(payersPending)
+// CALC CHECK PASSES
 
-
+console.log("BILLING OBJ:",billing )
 
   let owersAndOwedRef = splitOwersAndOwed (payers, share)
   console.log("OWERS/OWED:", owersAndOwedRef)
  ;
-
 
  function whoPaysWho(owersAndOwedRef, share, total){
   // find out the amount owed[0] is paid DONE

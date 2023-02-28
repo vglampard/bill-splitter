@@ -28,3 +28,20 @@ export function splitOwersAndOwed(payersTrimmed, share) {
   }
   return { owers, owed };
 }
+
+export function tallyCheck(payers){
+  let tallyArray = payers.map((payer)=> payer.moneyPending)
+  return tallyArray.reduce((a, b)=>(a+b)).toFixed(3) 
+}
+
+export function createBillingArrays(payersPending){
+  let billing ={
+    owers: [],
+    owed: [],
+    even: []
+  }
+  billing.owers.push(payersPending.filter(payer=> payer.moneyPending>0))
+  billing.owed.push(payersPending.filter(payer=> payer.moneyPending<0))
+  billing.even.push(payersPending.filter(payer=> payer.moneyPending===0))
+  return billing;
+}
