@@ -1,0 +1,12 @@
+.results {
+    display: flex;
+    align-items: flex-end;
+}
+
+.owesData {
+    background-color: red;
+}
+
+.owedData {
+    background-color: green;
+}
