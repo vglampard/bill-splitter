@@ -14,4 +14,6 @@ All people in ower array pay share to person owed most
 that person pays surplus to next person in owed array 
 etc until 
 
+could refactor to make it so that bool prop isOwed is added to objects after cal? 
+
 clear all 

@@ -11,6 +11,7 @@ export function splitOwersAndOwed(payersTrimmed, share) {
     function sortByAmountDesc(a, b) {
       return a.amount - b.amount;
     }
+    
     return { owers, owed };
   }
 
