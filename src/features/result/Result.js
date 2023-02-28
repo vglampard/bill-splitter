@@ -4,6 +4,8 @@ import { selectPayers } from "../paymentsMade/paymentsMadeSlice";
 import React from "react";
 import "./results.css";
 import { splitOwersAndOwed, calculateBalance } from "./functions";
+import { useState } from "react";
+import FinalBill from "../finalBill/FinalBill";
 
 export default function Result() {
   const payers = useSelector(selectPayers);
@@ -11,19 +13,31 @@ export default function Result() {
   let total = totalArray.reduce((a, b) => a + b);
   const payersTrimmed = payers.slice(1);
   const share = total / payersTrimmed.length;
+  const [finalResult, setFinalResult] = useState(false)
 
   let owersAndOwedRef = splitOwersAndOwed (payersTrimmed, share)
   console.log("OWERS/OWED:", owersAndOwedRef)
  ;
 
 
- function whoPaysWho(owersAndOwedRef){
+ function whoPaysWho(owersAndOwedRef, share, total){
 // all in person.name in oaor pay person.amount to owed[0].name
 let owersRes = owersAndOwedRef.owers.map((person)=>({...person, pays: owersAndOwedRef.owed[0].name}))
-console.log("DID IT WORK", owersRes)
+
+// take kitty, sum of all money transferred. owed[0] receives kitty. kitty is set to kitty-share; owed[0] pays owed[1] the current value of kitty; continues until kitty is between 0 and 1 (pound)
+let kitty = total
+for (let i=0; i<owersAndOwedRef.owed.length; i++){
+kitty -= share;
+owersAndOwedRef.owed[i].toPay = kitty;
+owersAndOwedRef.owed[i].pays = owersAndOwedRef.owed[i+1]
+if(kitty<=1) break;
+}
+console.log("OWERSRES", owersRes)
+console.log("OWEDRES", owersAndOwedRef.owed)
+// return owersRes
  }
 
-function handleClick(){whoPaysWho(owersAndOwedRef)}
+function handleClick(){whoPaysWho(owersAndOwedRef, share, total); setFinalResult(!finalResult)}
   return (
     <>
       <div className="allData">
@@ -56,6 +70,7 @@ function handleClick(){whoPaysWho(owersAndOwedRef)}
       <div className="finalPayment">
         <h3> WHO PAYS WHO WHAT:🛠️🛠️🛠️ in progress... </h3>
         <button onClick={handleClick}>Calculate</button>
+        {finalResult && <FinalBill/>}
       </div>
       {/* <div className="paidData">
           {payersTrimmed.map((payer) => {

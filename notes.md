@@ -17,3 +17,5 @@ etc until
 could refactor to make it so that bool prop isOwed is added to objects after cal? 
 
 clear all 
+
+pull out all toggle buttons into a toggle reducer?
