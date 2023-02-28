@@ -3,7 +3,7 @@ import logo from './logo.png';
 import { Counter } from './features/counter/Counter';
 import './App.css';
 import Result from './features/result/Result';
-import cash from "./logo.png"
+
 
 function App() {
   return (

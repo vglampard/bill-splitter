@@ -1,3 +1,20 @@
+export function calculateBalance(share, paid) {
+  return (share - paid).toFixed(2);
+}
+
+export function sortByAmountDesc(a, b) {
+    return a.amount - b.amount;
+  }
+
+export function getTotalPaid(payers){
+  let payments = payers.map((payer)=>payer.amount)
+  return payments.reduce((a, b)=> a+b)
+}
+
+export function getShare(payers, total){
+return total/payers.length;
+}
+
 export function splitOwersAndOwed(payersTrimmed, share) {
   let owers = [];
   let owed = [];
@@ -9,15 +26,5 @@ export function splitOwersAndOwed(payersTrimmed, share) {
     owers.sort((a, b) => sortByAmountDesc(a, b));
     owed.sort((a, b) => sortByAmountDesc(a, b)).reverse();
   }
-
- 
   return { owers, owed };
 }
-
-export function calculateBalance(share, paid) {
-  return (share - paid).toFixed(2);
-}
-
-function sortByAmountDesc(a, b) {
-    return a.amount - b.amount;
-  }

@@ -1,21 +1,31 @@
-import { useSelector, useDispatch } from "react-redux";
-import { selectCount } from "../counter/counterSlice";
+import { useSelector } from "react-redux";
 import { selectPayers } from "../paymentsMade/paymentsMadeSlice";
 import React from "react";
 import "./results.css";
-import { splitOwersAndOwed, calculateBalance } from "./functions";
+import { splitOwersAndOwed, calculateBalance } from "../../utils/functions";
 import { useState } from "react";
 import FinalBill from "../finalBill/FinalBill";
+import PaymentsMade from "../paymentsMade/paymentsMade";
+import { getTotalPaid } from "../../utils/functions";
 
 export default function Result() {
-  const payers = useSelector(selectPayers);
-  let totalArray = payers.map((payer) => payer.amount);
-  let total = totalArray.reduce((a, b) => a + b);
-  const payersTrimmed = payers.slice(1);
-  const share = total / payersTrimmed.length;
+  const payersArr = useSelector(selectPayers)
+const total = getTotalPaid(payersArr)
+  const payers = payersArr.slice(1)
+  const share = total / payers.length;
+
+  // add new property to objects, 'moneyPending', using calculate balance
+
+let payersPending = payers.map((a)=>({...a, moneyPending: calculateBalance(share, a.amount)}))
+console.log("CALC check payersPop:", payersPending)
+  // CALC CHECK PASSES
+
+  // splitting functions up with button so they don't start running toe soon 
   const [finalResult, setFinalResult] = useState(false)
 
-  let owersAndOwedRef = splitOwersAndOwed (payersTrimmed, share)
+
+
+  let owersAndOwedRef = splitOwersAndOwed (payers, share)
   console.log("OWERS/OWED:", owersAndOwedRef)
  ;
 
@@ -81,15 +91,7 @@ function handleClick(){whoPaysWho(owersAndOwedRef, share, total); setFinalResult
         <button onClick={handleClick}>Calculate</button>
         {finalResult && <FinalBill/>}
       </div>
-      {/* <div className="paidData">
-          {payersTrimmed.map((payer) => {
-            return (
-              <p>
-                {payer.name} paid {payer.amount}
-              </p>
-            );
-          })}
-        </div> */}
+     <PaymentsMade payers = {payers}/>
     </>
   );
 }
