@@ -54,9 +54,9 @@ console.log("DID IT WORK", owersRes)
         </div>
       </div>
       <div className="finalPayment">
-        <h3> {Object.keys(owersAndOwedRef.owers)}</h3>
+        <h3> WHO PAYS WHO WHAT:🛠️🛠️🛠️ in progress... </h3>
       </div>
-      <div className="paidData">
+      {/* <div className="paidData">
           {payersTrimmed.map((payer) => {
             return (
               <p>
@@ -64,7 +64,7 @@ console.log("DID IT WORK", owersRes)
               </p>
             );
           })}
-        </div>
+        </div> */}
     </>
   );
 }
