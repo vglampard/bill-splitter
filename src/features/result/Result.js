@@ -22,8 +22,8 @@ export default function Result() {
 let owersRes = owersAndOwedRef.owers.map((person)=>({...person, pays: owersAndOwedRef.owed[0].name}))
 console.log("DID IT WORK", owersRes)
  }
- whoPaysWho(owersAndOwedRef);
 
+function handleClick(){whoPaysWho(owersAndOwedRef)}
   return (
     <>
       <div className="allData">
@@ -55,6 +55,7 @@ console.log("DID IT WORK", owersRes)
       </div>
       <div className="finalPayment">
         <h3> WHO PAYS WHO WHAT:🛠️🛠️🛠️ in progress... </h3>
+        <button onClick={handleClick}>Calculate</button>
       </div>
       {/* <div className="paidData">
           {payersTrimmed.map((payer) => {
