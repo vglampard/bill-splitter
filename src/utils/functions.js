@@ -49,7 +49,7 @@ export function createBillingArrays(payersPending){
 
 export function addPaymentRecipient(billing){
  
-billing.owers.forEach((payer)=>{payer.recipient = billing.owed[0][0].name} )
-billing.even.forEach((payer)=>{payer.recipient = "nobody"} )
+if(billing.owers[0].length>1){billing.owers[0].forEach((payer)=>{payer.recipient = billing.owed[0][0].name} )}
+billing.even[0].forEach((payer)=>{payer.recipient = "nobody"} )
 return billing
 }

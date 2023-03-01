@@ -25,30 +25,26 @@ export default function Result() {
     ...a,
     moneyPending: Number(calculateBalance(share, a.amount)),
   }));
-  console.log("PAYERS PENDING:", payersPending)
-  
+  console.log("PAYERS PENDING:", payersPending);
 
   // splitting functions up with button so they don't start running toe soon
   const [finalResult, setFinalResult] = useState(false);
 
-  
   // CALC CHECK PASSES
 
   // add recipients to each object, starting with the owers as these are aesy: they all pay to the person owed most (CHECK that this is going to that person -> the sorting might be inthe wrong direction!)
-  
 
-function generateBill(){
+  function generateBill() {
     // CHECK that tally of money pending is more or less 0
-  console.log("CHECK TALLY EVENS OUT:", tallyCheck(payersPending));
-  // Split into 3 arrays stored in billing object: owed, ower, even
-  let billing = createBillingArrays(payersPending);
-  console.log("BILLING:", billing)
-  console.log("RECIP ADDED:", addPaymentRecipient(billing))
-}
-
+    console.log("CHECK TALLY EVENS OUT:", tallyCheck(payersPending));
+    // Split into 3 arrays stored in billing object: owed, ower, even
+    let billing = createBillingArrays(payersPending);
+    console.log("BILLING:", billing);
+    console.log("RECIP ADDED:", addPaymentRecipient(billing));
+  }
+let billing = {};
   function handleClickResult() {
     setFinalResult(!finalResult);
-
   }
   return (
     <>
@@ -59,7 +55,8 @@ function generateBill(){
         </div>
 
         <div className="results">
-      <button onClick={generateBill}>Calculate bill </button>
+          <button onClick={generateBill}>Calculate bill </button>
+          
         </div>
       </div>
       <div className="finalPayment">
