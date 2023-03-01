@@ -29,10 +29,10 @@ export function splitOwersAndOwed(payersTrimmed, share) {
   return { owers, owed };
 }
 
-export function tallyCheck(payers){
-  let tallyArray = payers.map((payer)=> payer.moneyPending)
-  return tallyArray.reduce((a, b)=>(a+b)).toFixed(3) 
-}
+// export function tallyCheck(payers){
+//   let tallyArray = payers.map((payer)=> payer.moneyPending)
+//   return tallyArray.reduce((a, b)=>(a+b)).toFixed(3) 
+// }
 
 export function createBillingArrays(payersPending){
   let billing ={
@@ -50,5 +50,6 @@ export function createBillingArrays(payersPending){
 export function addPaymentRecipient(billing){
  
 billing.owers.forEach((payer)=>{payer.recipient = billing.owed[0][0].name} )
+billing.even.forEach((payer)=>{payer.recipient = "nobody"} )
 return billing
 }
