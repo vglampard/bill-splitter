@@ -1,7 +1,17 @@
 # WORK IN PROGRESS
 
-We all know about bill splitters => but what happens when various bills have all been paid by different parties, and you all both owe and are owed in turn?
+We can all whip out a calculator to split a dinner bill.
 
-Work in progress Redux app to consolidate all these different owings and debts into one simple payment - except it's not a scam and there are no interest rates. 
+But what if Alice paid for dinner, Bob paid for the Taxi, and Charlie paid for drinks? They want to split it all evenly - but everyone owes everyone! And everyone is OWED by everyone!
+
+PayBack Machine is a work-in-progress Redux app to consolidate all these different owings and debts into one simple payment.
+
+It's already working for a single cluster of payments. Type in the name and amount of money contributed by each person, and hit 'calculate' to work out how to untangle the payback knot in a single transfer.  
+
+Alice, Bob, and Charlie can rest easy. 
+
+Next up: co-ordinate across multiple 'clusters'. What if before dinner, Alice and Bob go for drinks - and after dinner, Bob gets Charlie a taxi? 
+
+We can still trim this down into a single payment for each! Watch this space.
 
 🛠️🛠️🛠️
