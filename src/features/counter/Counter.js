@@ -1,34 +1,26 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-  incrementByAmount,
-  selectCount,
-} from './counterSlice';
-import styles from './Counter.module.css';
-import { addPayer } from '../paymentsMade/paymentsMadeSlice';
-import { selectPayers } from '../paymentsMade/paymentsMadeSlice';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import styles from "./Counter.module.css";
+import { addPayer } from "../paymentsMade/paymentsMadeSlice";
 
+// NOT a counter, but in fact the input component where users input a person who contributed to a total bill, and how much they paid.
 export function Counter() {
-  const count = useSelector(selectCount);
   const dispatch = useDispatch();
-  const [incrementAmount, setIncrementAmount] = useState('2');
-  const [payer, setPayer] = useState("")
+  const [incrementAmount, setIncrementAmount] = useState("How much?");
+  const [payer, setPayer] = useState("");
+  // change amount from input string to number
   const incrementValue = Number(incrementAmount) || 0;
 
-
-  function handleClick(){
-    console.log("action object data:", incrementValue, payer)
-    dispatch(addPayer({name: payer, amount: incrementValue}))
-  
-    dispatch(incrementByAmount(incrementValue));
+  function handleClick() {
+    // add new payer to the payers array via reducer action 
+    dispatch(addPayer({ name: payer, amount: incrementValue }));
   }
 
   return (
     <div>
+      <div className={styles.row}></div>
       <div className={styles.row}>
-      </div>
-      <div className={styles.row}>
-      <input
+        <input
           className={styles.textbox}
           aria-label="Payer name"
           value={payer}
@@ -36,28 +28,13 @@ export function Counter() {
         />
         <input
           className={styles.textbox}
-          aria-label="Set increment amount"
+          aria-label="Payment amount"
           value={incrementAmount}
           onChange={(e) => setIncrementAmount(e.target.value)}
         />
-        <button
-          className={styles.button}
-          onClick={handleClick}
-        >
-          Add 
+        <button className={styles.button} onClick={handleClick}>
+          Add
         </button>
-        {/* <button
-          className={styles.asyncButton}
-          onClick={() => dispatch(incrementAsync(incrementValue))}
-        >
-          Add Async
-        </button> */}
-        {/* <button
-          className={styles.button}
-          onClick={() => dispatch(incrementIfOdd(incrementValue))}
-        >
-          Add If Odd
-        </button> */}
       </div>
     </div>
   );

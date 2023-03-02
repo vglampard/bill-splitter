@@ -26,3 +26,5 @@ for each person, adds new properties:
     pays: owed[0]
   
 }
+
+Change 'amount' property to e.g. already paid

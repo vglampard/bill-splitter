@@ -1,4 +1,5 @@
-export function calculateBalance(share, paid){
+
+export function calculateBalance(share, paid) {
   return (share - paid).toFixed(2);
 }
 
