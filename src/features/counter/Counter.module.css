@@ -46,9 +46,14 @@ button {
   width: 160px;
 }
 
-button:hover {
+button:hover{
   opacity: .7;
 }
+button:hover:disabled{
+  opacity: .7;
+}
+
+
 
 /* @media screen and (max-width: 1000px) {
   button {
