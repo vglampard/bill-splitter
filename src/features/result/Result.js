@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
+import {useState} from 'react'
 import { selectPayers } from "../paymentsMade/paymentsMadeSlice";
 import React from "react";
 import "./results.css";
-import { splitOwersAndOwed, calculateBalance } from "../../utils/functions";
-import { useState } from "react";
+import { calculateBalance } from "../../utils/functions";
 import FinalBill from "../finalBill/FinalBill";
 import PaymentsMade from "../paymentsMade/paymentsMade";
 import {
@@ -18,7 +18,7 @@ export default function Result() {
   const total = getTotalPaid(payersArr);
   const payers = payersArr.slice(1);
   const share = total / payers.length;
-
+  const [billing, setBilling] = useState({})
   // add new property to objects, 'moneyPending', using calculate balance
 
   let payersPending = payers.map((a) => ({
@@ -41,11 +41,13 @@ export default function Result() {
     let billing = createBillingArrays(payersPending);
     console.log("BILLING:", billing);
     console.log("RECIP ADDED:", addPaymentRecipient(billing));
-  }
-let billing = {};
-  function handleClickResult() {
+    setBilling(billing);
     setFinalResult(!finalResult);
   }
+
+function createInvoice(){
+
+}
   return (
     <>
       <div className="allData">
@@ -61,11 +63,11 @@ let billing = {};
       </div>
       <div className="finalPayment">
         <h3> WHO PAYS WHO WHAT:🛠️🛠️🛠️ in progress... </h3>
-        <button onClick={handleClickResult}>Calculate</button>
-        {finalResult && <FinalBill />}
+       <button onClick = {createInvoice}>Who pays what? </button>
+        
       </div>
-      <PaymentsMade payers={payers} />
-      <FinalBill billing = {billing}/>
+     <PaymentsMade payers={payers} />
+      {finalResult && <FinalBill billing = {billing}/>}
     </>
   );
 }

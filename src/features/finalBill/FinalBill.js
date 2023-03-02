@@ -1,11 +1,13 @@
 import React from 'react'
-import { createResultsStrings } from '../../utils/functions'
+import { createResultsStringsOwerEven, createResultsStringsOwed } from '../../utils/functions'
 
-export default function FinalBill({billing}) {
-  console.log("FINAL BILL CALLED")
+export default function FinalBill(billing) {
+  console.log("FINAL BILL CALLED", billing.billing.owers)
   return (
     <div>
-      {createResultsStrings(billing.owers[0])}
+      {createResultsStringsOwerEven(billing.billing.owers[0])}
+      {createResultsStringsOwerEven(billing.billing.even[0])}
+      {createResultsStringsOwed(billing.billing.owed[0])}
     </div>
   )
 }

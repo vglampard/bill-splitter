@@ -51,7 +51,7 @@ export function createBillingArrays(payersPending){
 
 export function addPaymentRecipient(billing){
  
-if(billing.owers[0].length>1){billing.owers[0].forEach((payer)=>{payer.recipient = billing.owed[0][0].name} )}
+if(billing.owers[0].length>=1){billing.owers[0].forEach((payer)=>{payer.recipient = billing.owed[0][0].name} )}
 billing.even[0].forEach((payer)=>{payer.recipient = "nobody"} )
 const totalOwedArr = billing.owers[0].map((ower)=>ower.moneyPending)
 const totalOwed = totalOwedArr.reduce((a, b)=> a+b)
@@ -65,6 +65,7 @@ export function handDownPay(owed, paid){
 for (let i=0; i<owed.length; i++){
   paid+= owed[i].moneyPending;
   owed[i].toPay = paid>0.5? owed[i+1].name : "nobody"
+  owed[i].balance = paid
   console.log("paid over:", paid)
 }
 
@@ -72,8 +73,12 @@ console.log("OWED WITH RECIP:", owed)
 console.log("remainder:", paid)
 }
 
-export function createResultsStrings(arr){
-
-  return arr.map((person)=> <p>{person.name} pays {person.moneyPending} to {person.toPay}</p>)
-
+export function createResultsStringsOwerEven(arr){
+console.log("strings functin called" ,arr)
+  return arr.map((person)=> <p>{person.name} pays {person.moneyPending} to {person.recipient}</p>)
 }
+
+export function createResultsStringsOwed(arr){
+  console.log("strings functin called" ,arr)
+    return arr.map((person)=> <p>{person.name} pays {person.balance} to {person.toPay}</p>)
+  }
