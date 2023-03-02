@@ -33,7 +33,7 @@ export function Counter() {
           onChange={(e) => setIncrementAmount(e.target.value)}
         />
         <button className={styles.button} onClick={handleClick}>
-          Add
+          Add to bill
         </button>
       </div>
     </div>
