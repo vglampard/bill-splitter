@@ -23,13 +23,14 @@ export function Counter() {
         <input
           aria-label="Payer name"
           value={payer}
-          onChange={(e) => setPayer(e.target.value)}
+          onChange={(e) => {setPayer(e.target.value)
+          e.target.value=""}}
         />
         <input
           aria-label="Payment amount"
           type="number" pattern="[0-9]*" inputmode="numeric"
           value={incrementAmount}
-          onChange={(e) => setIncrementAmount(e.target.value)}
+          onChange={(e) => {setIncrementAmount(e.target.value);}}
         />
         <button className={styles.button} onClick={handleClick} 
         disabled={!payer}>
