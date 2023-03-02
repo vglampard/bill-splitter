@@ -65,6 +65,7 @@ let billing = {};
         {finalResult && <FinalBill />}
       </div>
       <PaymentsMade payers={payers} />
+      <FinalBill billing = {billing}/>
     </>
   );
 }

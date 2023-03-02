@@ -71,3 +71,9 @@ for (let i=0; i<owed.length; i++){
 console.log("OWED WITH RECIP:", owed)
 console.log("remainder:", paid)
 }
+
+export function createResultsStrings(arr){
+
+  return arr.map((person)=> <p>{person.name} pays {person.moneyPending} to {person.toPay}</p>)
+
+}

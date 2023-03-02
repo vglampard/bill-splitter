@@ -1,7 +1,11 @@
 import React from 'react'
+import { createResultsStrings } from '../../utils/functions'
 
-export default function FinalBill() {
+export default function FinalBill({billing}) {
+  console.log("FINAL BILL CALLED")
   return (
-    <div>FinalBill</div>
+    <div>
+      {createResultsStrings(billing.owers[0])}
+    </div>
   )
 }
