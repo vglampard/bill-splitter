@@ -40,7 +40,7 @@ export default function Result() {
     // Split into 3 arrays stored in billing object: owed, ower, even
     let billing = createBillingArrays(payersPending);
     console.log("BILLING:", billing);
-    console.log("RECIP ADDED:", addPaymentRecipient(billing));
+  addPaymentRecipient(billing);
     setBilling(billing);
     setFinalResult(!finalResult);
   }

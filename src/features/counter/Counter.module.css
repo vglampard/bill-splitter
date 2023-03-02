@@ -24,17 +24,17 @@
 button {
   background-color: initial;
   background-image: linear-gradient(#8614f8 0, #760be0 100%);
-  border-radius: 5px;
+  border-radius: 20px;
   border-style: none;
-  box-shadow: rgba(245, 244, 247, .25) 0 1px 1px inset;
+  box-shadow: rgba(245, 244, 247, .25) 0 3px 1px inset;
   color: #fff;
   cursor: pointer;
   display: inline-block;
   font-family: Inter, sans-serif;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
-  height: 60px;
-  line-height: 60px;
+  height: 5vh;
+  line-height: 15px;
   margin-left: -4px;
   outline: 0;
   text-align: center;
@@ -43,26 +43,26 @@ button {
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: bottom;
-  width: 190px;
+  width: 10vw;
 }
 
 button:hover {
   opacity: .7;
 }
 
-@media screen and (max-width: 1000px) {
+/* @media screen and (max-width: 1000px) {
   button {
     font-size: 14px;
     height: 55px;
     line-height: 55px;
     width: 150px;
   }
-}
+} */
 
-.textbox {
-  font-size: 32px;
+input {
+  font-size: 12px;
   padding: 2px;
-  width: 64px;
+  width: 20vw;
   text-align: center;
   margin-right: 4px;
 }
