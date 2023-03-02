@@ -80,5 +80,5 @@ console.log("strings functin called" ,arr)
 
 export function createResultsStringsOwed(arr){
   console.log("strings functin called" ,arr)
-    return arr.map((person)=> <p>{person.name} pays {person.balance} to {person.toPay}</p>)
+    return arr.map((person)=> <p>{person.name} pays {person.balance.toFixed(2)} to {person.toPay}</p>)
   }
