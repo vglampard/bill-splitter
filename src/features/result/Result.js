@@ -19,6 +19,7 @@ export default function Result() {
   const payers = payersArr.slice(1);
   const share = total / payers.length;
   const [billing, setBilling] = useState({})
+  const [contributors, setContributors] = useState(false)
   // add new property to objects, 'moneyPending', using calculate balance
 
   let payersPending = payers.map((a) => ({
@@ -40,34 +41,35 @@ export default function Result() {
     // Split into 3 arrays stored in billing object: owed, ower, even
     let billing = createBillingArrays(payersPending);
     console.log("BILLING:", billing);
-    console.log("RECIP ADDED:", addPaymentRecipient(billing));
+  addPaymentRecipient(billing);
     setBilling(billing);
     setFinalResult(!finalResult);
   }
 
-function createInvoice(){
+// function createInvoice(){
+// }
 
+function toggleContributors(){
+setContributors(!contributors)
 }
+
   return (
     <>
       <div className="allData">
         <div className="summaryData">
-          <h1>Total paid: {total}</h1>
-          <h2> Each person's share: {share.toFixed(2)}</h2>
+          <h2>Total paid: {total}</h2>
+          <h3> Each should pay: {share.toFixed(2)}</h3>
         </div>
 
         <div className="results">
+          <button onClick={toggleContributors}>See contributors </button>
           <button onClick={generateBill}>Calculate bill </button>
-          
+          {/* <button onClick = {createInvoice}>Who pays what? </button> */}
         </div>
       </div>
-      <div className="finalPayment">
-        <h3> WHO PAYS WHO WHAT:🛠️🛠️🛠️ in progress... </h3>
-       <button onClick = {createInvoice}>Who pays what? </button>
-        
-      </div>
-     <PaymentsMade payers={payers} />
+  
+      {contributors && <PaymentsMade payers={payers} />}
       {finalResult && <FinalBill billing = {billing}/>}
-    </>
+</>
   );
 }

@@ -21,19 +21,19 @@ export function Counter() {
       <div className={styles.row}></div>
       <div className={styles.row}>
         <input
-          className={styles.textbox}
           aria-label="Payer name"
           value={payer}
           onChange={(e) => setPayer(e.target.value)}
         />
         <input
-          className={styles.textbox}
           aria-label="Payment amount"
+          type="number" pattern="[0-9]*" inputmode="numeric"
           value={incrementAmount}
           onChange={(e) => setIncrementAmount(e.target.value)}
         />
-        <button className={styles.button} onClick={handleClick}>
-          Add
+        <button className={styles.button} onClick={handleClick} 
+        disabled={!payer}>
+          Add to bill
         </button>
       </div>
     </div>

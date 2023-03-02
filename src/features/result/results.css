@@ -10,3 +10,9 @@
 .owedData {
     background-color: green;
 }
+
+.results{
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+}
