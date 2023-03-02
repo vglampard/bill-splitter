@@ -58,15 +58,11 @@ function createInvoice(){
 
         <div className="results">
           <button onClick={generateBill}>Calculate bill </button>
-          
+          {/* <button onClick = {createInvoice}>Who pays what? </button> */}
         </div>
       </div>
-      <div className="finalPayment">
-        <h3> WHO PAYS WHO WHAT:🛠️🛠️🛠️ in progress... </h3>
-       <button onClick = {createInvoice}>Who pays what? </button>
-        
-      </div>
-     <PaymentsMade payers={payers} />
+  
+      <PaymentsMade payers={payers} />
       {finalResult && <FinalBill billing = {billing}/>}
     </>
   );
