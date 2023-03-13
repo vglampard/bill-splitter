@@ -14,6 +14,8 @@ export function Counter() {
   function handleClick() {
     // add new payer to the payers array via reducer action
     dispatch(addPayer({ name: payer, amount: incrementValue }));
+    setPayer("");
+    setIncrementAmount("");
   }
 
   return (
@@ -21,6 +23,7 @@ export function Counter() {
       <div className={styles.inputDiv}>
         <input
           aria-label="Payer name"
+          placeholder="Who contributed..."
           value={payer}
           onChange={(e) => setPayer(e.target.value)}
         />
@@ -29,6 +32,7 @@ export function Counter() {
           type="number"
           pattern="[0-9]*"
           inputmode="numeric"
+          placeholder="...and how much?"
           value={incrementAmount}
           onChange={(e) => setIncrementAmount(e.target.value)}
         />

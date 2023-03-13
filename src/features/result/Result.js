@@ -46,9 +46,6 @@ export default function Result() {
     setFinalResult(!finalResult);
   }
 
-// function createInvoice(){
-// }
-
 function toggleContributors(){
 setContributors(!contributors)
 }
@@ -64,7 +61,6 @@ setContributors(!contributors)
         <div className="results">
           <button onClick={toggleContributors}>See contributors </button>
           <button onClick={generateBill}>Calculate bill </button>
-          {/* <button onClick = {createInvoice}>Who pays what? </button> */}
         </div>
       </div>
   
