@@ -1,15 +1,8 @@
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+body {
+  background-attachment: fixed;
 }
+.container{
 
-.row > button {
-  margin-left: 4px;
-  margin-right: 8px;
-}
-.row:not(:last-child) {
-  margin-bottom: 16px;
 }
 
 .value {
@@ -20,19 +13,22 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
+.inputDiv{
+  padding: 10px;
+}
 
 button {
   background-color: initial;
-  background-image: linear-gradient(#8614f8 0, #760be0 100%);
+  background-image: linear-gradient(#975fcf 0, #760be0 100%);
   border-radius: 20px;
   border-style: none;
-  box-shadow: rgba(245, 244, 247, .25) 0 3px 1px inset;
-  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 3px 1px inset;
+  color: #282727;
   cursor: pointer;
   display: inline-block;
   font-family: Inter, sans-serif;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 700;
   height: 5vh;
   line-height: 15px;
   margin-left: 14px;
@@ -55,19 +51,15 @@ button:hover:disabled{
 
 
 
-/* @media screen and (max-width: 1000px) {
-  button {
-    font-size: 14px;
-    height: 55px;
-    line-height: 55px;
-    width: 150px;
-  }
-} */
-
 input {
   font-size: 12px;
   padding: 2px;
-  width: 20vw;
+  width: 200px;
   text-align: center;
   margin-right: 4px;
+  border-radius: 0.2cm;
+}
+
+.buttonDiv{
+  margin: 20px;
 }

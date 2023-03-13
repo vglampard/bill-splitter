@@ -12,14 +12,13 @@ export function Counter() {
   const incrementValue = Number(incrementAmount) || 0;
 
   function handleClick() {
-    // add new payer to the payers array via reducer action 
+    // add new payer to the payers array via reducer action
     dispatch(addPayer({ name: payer, amount: incrementValue }));
   }
 
   return (
-    <div>
-      <div className={styles.row}></div>
-      <div className={styles.row}>
+    <div className={styles.container}>
+      <div className={styles.inputDiv}>
         <input
           aria-label="Payer name"
           value={payer}
@@ -27,15 +26,22 @@ export function Counter() {
         />
         <input
           aria-label="Payment amount"
-          type="number" pattern="[0-9]*" inputmode="numeric"
+          type="number"
+          pattern="[0-9]*"
+          inputmode="numeric"
           value={incrementAmount}
           onChange={(e) => setIncrementAmount(e.target.value)}
         />
-        <button className={styles.button} onClick={handleClick} 
-        disabled={!payer}>
-          Add to bill
-        </button>
       </div>
+      <div className={styles.buttonDiv}>
+          <button
+            className={styles.button}
+            onClick={handleClick}
+            disabled={!payer}
+          >
+            Add to bill
+          </button>
+        </div>
     </div>
   );
 }
