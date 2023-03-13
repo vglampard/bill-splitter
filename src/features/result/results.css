@@ -3,13 +3,12 @@
     align-items: flex-end;
 }
 
-.owesData {
-    background-color: red;
-}
-
-.owedData {
-    background-color: green;
-}
+.summaryData{
+margin-right: 10px;
+font-size: 15px;
+   text-align: right;
+   line-height: 0.1;
+  }
 
 .results{
     align-items: center;

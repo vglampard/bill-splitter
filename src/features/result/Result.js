@@ -54,8 +54,8 @@ setContributors(!contributors)
     <>
       <div className="allData">
         <div className="summaryData">
-          <h2>Total paid: {total}</h2>
-          {!isNaN(share) && <h3> Each should pay: {share.toFixed(2)}</h3>}
+          <p>Total paid: {total}</p>
+          {!isNaN(share) && <p> Share each: {share.toFixed(2)}</p>}
         </div>
 
         <div className="results">

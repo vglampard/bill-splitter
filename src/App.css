@@ -11,6 +11,7 @@ body {
 .App-logo {
   height: 25vmin;
   pointer-events: none;
+  filter: drop-shadow(10px 5px 6px #777575);
 }
 
 .App-header {

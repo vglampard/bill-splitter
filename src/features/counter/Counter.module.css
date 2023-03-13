@@ -4,10 +4,14 @@ body {
 .container{
   margin: 10px;
   background-color: rgba(255, 255, 255, .15);  
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(4px);
   border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
   box-shadow: 10px 5px 5px rgb(40, 39, 39);
 }
+
+
 
 .value {
   font-size: 78px;
@@ -22,38 +26,49 @@ body {
 }
 
 button {
-  background-color: initial;
-  background-image: linear-gradient(#975fcf 0, #760be0 100%);
-  border-radius: 20px;
-  border-style: none;
-  box-shadow: rgba(0, 0, 0, 0.25) 0 3px 1px inset;
-  color: #282727;
+  align-items: center;
+  appearance: none;
+  background-color: #d2c1b2;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: 3px 3px 5px rgba(40, 39, 39, 0.366);
+
+  box-sizing: border-box;
+  color: #000000;
   cursor: pointer;
-  display: inline-block;
-  font-family: Inter, sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  height: 5vh;
-  line-height: 15px;
-  margin-left: 14px;
-  outline: 0;
-  text-align: center;
-  transition: all .3s cubic-bezier(.05, .03, .35, 1);
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 10vhpx;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding: 7px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  vertical-align: bottom;
-  width: 160px;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 12px;
 }
 
-button:hover{
-  opacity: .7;
-}
-button:hover:disabled{
-  opacity: .7;
+button:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
 
+button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
 
+button:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
 
 input {
   font-size: 12px;
@@ -67,3 +82,5 @@ input {
 .buttonDiv{
   margin: 20px;
 }
+
+
