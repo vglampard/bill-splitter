@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import styles from "./Counter.module.css";
 import { addPayer } from "../paymentsMade/paymentsMadeSlice";
+import Result from "../result/Result";
+import logo from "../../logo.png";
 
 // NOT a counter, but in fact the input component where users input a person who contributed to a total bill, and how much they paid.
 export function Counter() {
@@ -12,29 +14,44 @@ export function Counter() {
   const incrementValue = Number(incrementAmount) || 0;
 
   function handleClick() {
-    // add new payer to the payers array via reducer action 
+    // add new payer to the payers array via reducer action
     dispatch(addPayer({ name: payer, amount: incrementValue }));
+    setPayer("");
+    setIncrementAmount("");
   }
 
   return (
-    <div>
-      <div className={styles.row}></div>
-      <div className={styles.row}>
-        <input
-          aria-label="Payer name"
-          value={payer}
-          onChange={(e) => setPayer(e.target.value)}
-        />
-        <input
-          aria-label="Payment amount"
-          type="number" pattern="[0-9]*" inputmode="numeric"
-          value={incrementAmount}
-          onChange={(e) => setIncrementAmount(e.target.value)}
-        />
-        <button className={styles.button} onClick={handleClick} 
-        disabled={!payer}>
-          Add to bill
-        </button>
+    <div className={styles.container}>
+      <img src={logo} alt="money bag logo" />
+
+      <div className={styles.appFunctionality}>
+
+        <div className={styles.inputDiv}>
+          <input
+            aria-label="Payer name"
+            placeholder="Who contributed..."
+            value={payer}
+            onChange={(e) => setPayer(e.target.value)}
+          />
+          <input
+            aria-label="Payment amount"
+            type="number"
+            pattern="[0-9]*"
+            inputmode="numeric"
+            placeholder="...and how much?"
+            value={incrementAmount}
+            onChange={(e) => setIncrementAmount(e.target.value)}
+          />
+        
+        </div>
+        <button
+            className={styles.button}
+            onClick={handleClick}
+            disabled={!payer}
+          >
+            + Add to bill
+          </button>
+        <Result />
       </div>
     </div>
   );

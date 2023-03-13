@@ -26,12 +26,10 @@ export default function Result() {
     ...a,
     moneyPending: Number(calculateBalance(share, a.amount)),
   }));
-  console.log("PAYERS PENDING:", payersPending);
+  // console.log("PAYERS PENDING:", payersPending);
 
   // splitting functions up with button so they don't start running toe soon
   const [finalResult, setFinalResult] = useState(false);
-
-  // CALC CHECK PASSES
 
   // add recipients to each object, starting with the owers as these are aesy: they all pay to the person owed most (CHECK that this is going to that person -> the sorting might be inthe wrong direction!)
 
@@ -40,14 +38,11 @@ export default function Result() {
     console.log("CHECK TALLY EVENS OUT:", tallyCheck(payersPending));
     // Split into 3 arrays stored in billing object: owed, ower, even
     let billing = createBillingArrays(payersPending);
-    console.log("BILLING:", billing);
+    // console.log("BILLING:", billing);
   addPaymentRecipient(billing);
     setBilling(billing);
     setFinalResult(!finalResult);
   }
-
-// function createInvoice(){
-// }
 
 function toggleContributors(){
 setContributors(!contributors)
@@ -57,19 +52,22 @@ setContributors(!contributors)
     <>
       <div className="allData">
         <div className="summaryData">
-          <h2>Total paid: {total}</h2>
-          <h3> Each should pay: {share.toFixed(2)}</h3>
+          <p>Total paid: {total}</p>
+          {!isNaN(share) && <p> Share each: {share.toFixed(2)}</p>}
         </div>
-
-        <div className="results">
+<div className="getResults">
           <button onClick={toggleContributors}>See contributors </button>
           <button onClick={generateBill}>Calculate bill </button>
-          {/* <button onClick = {createInvoice}>Who pays what? </button> */}
-        </div>
+          </div>
       </div>
-  
+  <div className="results">
+    <div>
       {contributors && <PaymentsMade payers={payers} />}
+      </div>
+      <div>
       {finalResult && <FinalBill billing = {billing}/>}
+      </div>
+      </div>
 </>
   );
 }
