@@ -1,13 +1,17 @@
-import React from 'react'
+import React from "react";
 
-export default function PaymentsMade({payers}) {
+export default function PaymentsMade({ payers }) {
   return (
-    <div>{payers.map((payer) => {
+    <div >
+        <h2>Contributions:</h2>
+      {payers.map((payer) => {
         return (
+  
           <p>
             {payer.name} paid {payer.amount}
           </p>
         );
-      })}</div>
-  )
+      })}
+    </div>
+  );
 }
