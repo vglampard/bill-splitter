@@ -42,14 +42,15 @@ export function Counter() {
             value={incrementAmount}
             onChange={(e) => setIncrementAmount(e.target.value)}
           />
-          <button
+        
+        </div>
+        <button
             className={styles.button}
             onClick={handleClick}
             disabled={!payer}
           >
             + Add to bill
           </button>
-        </div>
         <Result />
       </div>
     </div>

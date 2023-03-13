@@ -55,10 +55,10 @@ setContributors(!contributors)
           <p>Total paid: {total}</p>
           {!isNaN(share) && <p> Share each: {share.toFixed(2)}</p>}
         </div>
-
+<div className="getResults">
           <button onClick={toggleContributors}>See contributors </button>
           <button onClick={generateBill}>Calculate bill </button>
- 
+          </div>
       </div>
   <div className="results">
     <div>
